@@ -59,9 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(moveWithDataIntent);
                 break;
 
-            case R.id.btn_move_activity_objrct: Person mPerson = new Person();
-                mPerson.setName("Aditya Fatwa Ramadhan"); mPerson.setAge(17);
-                mPerson.setEmail("Adityapatwa.ap@gmail.com"); mPerson.setCity("Bandung");
+            case R.id.btn_move_activity_objrct:
+                Person mPerson = new Person();
+                mPerson.setName("Aditya Fatwa Ramadhan");
+                mPerson.setAge(17);
+                mPerson.setEmail("Adityapatwa.ap@gmail.com");
+                mPerson.setCity("Bandung");
                 Intent moveWithObjectIntent = new Intent(MainActivity.this, move_with_object.class);
                 moveWithObjectIntent.putExtra(move_with_object.EXTRA_PERSON, mPerson);
                 startActivity(moveWithObjectIntent);
@@ -83,7 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult (requestCode, resultCode, data);if (requestCode == REQUEST_CODE) {
+        super.onActivityResult (requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE) {
             if (resultCode == move_for_result.RESULT_CODE) {
                 int selectedValue = data.getIntExtra(move_for_result.EXTRA_SELECTED_VALUE, 0);
                 tvResult.setText(String.format("Hasil : %s", selectedValue));
